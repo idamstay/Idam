@@ -1,540 +1,581 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>IDAM – Tropical Lakeside Stay | Kerala</title>
-    <meta name="description"
-        content="Experience the soul of Kerala at IDAM, an exclusive lakeside retreat featuring luxury capsule homes and majestic villas along the serene backwaters.">
-    <!-- Scripts & Styles -->
+    
+    <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Aesthetic Fonts: Cormorant Garamond (Headings), Manrope (Body), Noto Serif Malayalam (Malayalam) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+Malayalam:wght@100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#17c5e8",
-                        "background-light": "#f6f8f8",
-                        "background-dark": "#0f1719",
-                        "surface-dark": "#1a2e32",
+                        "primary": "#13ec80",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0a130f",
                     },
                     fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "serif": ["Cormorant Garamond", "serif"],
-                        "malayalam": ["Noto Serif Malayalam", "serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
                     },
                 },
             },
         }
     </script>
 </head>
-<body
-    class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary/30">
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto h-20 px-6 lg:px-20 flex items-center justify-between">
-            <a onclick="switchTab('home')" class="flex items-center gap-3 group cursor-pointer">
-                <div class="text-primary size-8 group-hover:scale-110 transition-transform duration-300">
-                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
-                            fill="currentColor"></path>
-                        <path clip-rule="evenodd"
-                            d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
-                            fill="currentColor" fill-rule="evenodd"></path>
-                    </svg>
+<body class="bg-background-dark text-white overflow-hidden">
+
+    <!-- Main App Container -->
+    <main id="app-container">
+
+        <!-- Fixed Navigation Bar -->
+        <header class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6">
+            <div class="max-w-7xl mx-auto glass-nav rounded-full px-6 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="text-primary">
+                        <span class="material-symbols-outlined text-3xl">water_lux</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">IDAM</span>
                 </div>
-                <h2 class="text-xl font-bold tracking-wider uppercase font-serif">IDAM</h2>
-            </a>
-            <nav class="hidden xl:flex items-center gap-10">
-                <button onclick="switchTab('home')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Home</button>
-                <button onclick="switchTab('about')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">About</button>
-                <button onclick="switchTab('stay')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Stay</button>
-                <button onclick="switchTab('experiences')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Experiences</button>
-                <button onclick="switchTab('gallery')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</button>
-                <button onclick="switchTab('contact')"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</button>
-            </nav>
-            <div class="hidden md:flex items-center gap-4">
-                <button onclick="switchTab('book')"
-                    class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95 hover:bg-primary/90">
-                    Book Now
-                </button>
-                <button onclick="switchTab('book')"
-                    class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10">
-                    Enquire Now
-                </button>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
-                class="xl:hidden p-2 text-white hover:text-primary z-[70] relative">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </header>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8">
-        <button onclick="switchTab('home')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Home</button>
-        <button onclick="switchTab('about')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">About</button>
-        <button onclick="switchTab('stay')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Stay</button>
-        <button onclick="switchTab('experiences')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Experiences</button>
-        <button onclick="switchTab('gallery')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</button>
-        <button onclick="switchTab('contact')"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</button>
-        <div class="flex flex-col gap-4 mt-8 w-full px-12">
-            <button onclick="switchTab('book')"
-                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</button>
-        </div>
-    </div>
-    <!-- Main Content Area -->
-    <main id="main-content" class="w-full relative overflow-x-hidden">
-        <!-- Tab: HOME -->
-        <section id="home"
-            class="tab-content relative min-h-screen w-full flex flex-col justify-center items-center px-6 lg:px-20 overflow-hidden">
-            <div class="absolute inset-0 z-0 scale-100">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-black/40 z-10">
-                </div>
-                <img class="w-full h-full object-cover animate-kenburns"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK-qz2SQ4xQerZBz_6Vpk90FOgG_BvhZudIQ6mKN9nm_ubTcIUSQxjYIUgRM6i6N6HLLDgYy26BRqGV3TVdSH1Sti1OF7A9ydcFPEqDUxXctSoPhT0fqDjbV_-fQQc1g0_8ResYlWY-5are7q5P65_vtss8NDTe5k1uuhvweJWyVmr-ObIUvZaloEOKofU031ErjZT2DN-GpOHWlPUE4n3UkMED_-E08fLfy4mV13GvzpRf1sp0McyBPD54eI6Ot_QKuFXoPiPl6Bb"
-                    alt="Aerial view of IDAM">
-            </div>
-            <div class="relative z-20 max-w-5xl text-center flex flex-col items-center gap-4 fade-in-up">
-                <!-- Malayalam Text "IDAM" -->
-                <h1
-                    class="text-7xl md:text-9xl lg:text-[10rem] font-malayalam font-bold text-white drop-shadow-2xl mb-2">
-                    ഇടം</h1>
-                <!-- Tagline -->
-                <p
-                    class="text-lg md:text-2xl text-primary font-serif italic tracking-wide max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
-                    Experience the soul of Kerala
-                </p>
-                <div class="flex flex-col sm:flex-row gap-6 mt-8">
-                    <button onclick="switchTab('stay')"
-                        class="px-10 py-4 bg-primary text-background-dark rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(23,197,232,0.5)] transition-all">
-                        Explore The Property
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-white/80 hover:text-primary text-sm font-medium transition-colors">Home</a>
+                    <a href="#stay" class="nav-link text-white/80 hover:text-primary text-sm font-medium transition-colors">Stay</a>
+                    <a href="#experiences" class="nav-link text-white/80 hover:text-primary text-sm font-medium transition-colors">Experiences</a>
+                    <a href="#gallery" class="nav-link text-white/80 hover:text-primary text-sm font-medium transition-colors">Gallery</a>
+                    <a href="#contact" class="nav-link text-white/80 hover:text-primary text-sm font-medium transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action & Mobile Menu -->
+                <div class="flex items-center gap-4">
+                    <button onclick="navigateTo('book')" class="bg-primary text-background-dark px-6 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105 active:scale-95 hidden sm:block">
+                        Book Now
                     </button>
-                    <button onclick="switchTab('gallery')"
-                        class="px-10 py-4 bg-white/5 border border-white/20 rounded-full font-bold text-lg backdrop-blur-md hover:bg-white/10 transition-all">
-                        View Gallery
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
                     </button>
                 </div>
             </div>
-        </section>
-        <!-- Tab: ABOUT -->
-        <section id="about" class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark">
-            <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mt-10">
-                <div class="flex flex-col gap-8 animate-on-scroll">
-                    <div class="inline-flex flex-col gap-1">
-                        <h2 class="text-3xl lg:text-4xl font-serif font-bold text-primary">Land-Based Luxury</h2>
-                        <div class="w-20 h-0.5 bg-primary/50"></div>
-                    </div>
-                    <h3 class="text-4xl lg:text-6xl font-serif font-medium leading-tight text-white">Modern Architecture
-                        in a Tropical Paradise.</h3>
-                    <p class="text-white/70 text-lg leading-relaxed font-light">
-                        IDAM is an architectural sanctuary situated on a lush plot of Kerala's verdant land. Our
-                        property features two avant-garde capsule houses and a sprawling 1500 sqft main home, separated
-                        from the calm backwaters by a quaint 3-meter access road.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                        <div class="flex flex-col gap-3">
-                            <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <span class="material-symbols-outlined">architecture</span>
-                            </div>
-                            <h4 class="font-serif font-bold text-xl text-white">Modern Aesthetics</h4>
-                            <p class="text-white/50 text-sm leading-relaxed">Sleek lines and minimal design that
-                                harmonizes with the surrounding palm groves.</p>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <span class="material-symbols-outlined">landscape</span>
-                            </div>
-                            <h4 class="font-serif font-bold text-xl text-white">Nature's Edge</h4>
-                            <p class="text-white/50 text-sm leading-relaxed">Vibrant tropical gardens and direct visual
-                                connection to the backwater horizon.</p>
-                        </div>
-                    </div>
+        </header>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-dark/95 backdrop-blur-xl translate-x-full flex flex-col items-center justify-center gap-8 transition-transform duration-500">
+            <a href="#home" class="mobile-nav-link text-2xl font-bold">Home</a>
+            <a href="#stay" class="mobile-nav-link text-2xl font-bold">Stay</a>
+            <a href="#experiences" class="mobile-nav-link text-2xl font-bold">Experiences</a>
+            <a href="#gallery" class="mobile-nav-link text-2xl font-bold">Gallery</a>
+            <a href="#contact" class="mobile-nav-link text-2xl font-bold">Contact</a>
+            <button onclick="navigateTo('book')" class="bg-primary text-background-dark px-8 py-3 rounded-full text-lg font-bold mt-4">Book Now</button>
+        </div>
+
+        <!-- SECTIONS -->
+
+        <!-- 1. HOME SECTION -->
+        <section id="home" class="page-section active">
+            <div class="hero-container relative w-full h-full flex items-center justify-center overflow-hidden">
+                <!-- Background Media -->
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/40 to-background-dark/90 z-10"></div>
+                    <img alt="IDAM Resort Kerala" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCor7rTAS1mo2jhDiUY_JFsS6Mv_1kgZmswiHzsNMWeAy098aOehR4LXRM3H_VUVAyBezT9AezsTn8UGHvfRtSORG-4-Wn7lui3lmIXPI-0FRsRlJeh5xp8OWEtlAb1oMjNe_BJ6dzgw2mrxesH_U7hJiagZqtsakZXZJUsDJi1IRi_zp8ATO9BG_MHawvAO9TEMo2W8B3hRR-4wUaaBxZqBnQc3Oxtja2AfX3kJCv0uY2NpbhNS_XErC4sKAXJ67Nt76ekazA_c-3g"/>
                 </div>
-                <!-- Image Grid -->
-                <div class="relative grid grid-cols-12 gap-4">
-                    <div class="col-span-12 aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl relative group">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn7z_hSb05GyF3QcFLRCEHe3VbGTATfX3Dc_vtBnijikHPUfoSO12OO0_Dd-HCEemb7gxdGhX7o_MNhKnJ7mTnrsEeybAzbZXRM94aMEvIBfgP6_TqvmP9xWJGJD6ZaI-8CW7sFarGo3RnfTzuhGIw36gD5Lw3MtNdec9uO-2u5qCIX5tWrTiTYGBTpldPVCYGxw8_dAV1MekT35oQGivKhnIzTwLqZOdZ4O5giy7ZZGaiLzYUzgCXXNjeXm19bVdcypncFsQ3-jBH"
-                            alt="Main Home">
-                    </div>
-                    <div
-                        class="col-span-6 aspect-square rounded-2xl overflow-hidden shadow-2xl relative translate-y-4 group">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhnQdyEVhoTuZGA12JFy_XZrUFcOuN2fty9ywFhquz1jLDRWNHjc9wydkX2-zY8FC7dBWCYRpxoSPuVg0l38hHSomfubNkRQZoS8NSjj7eD90cJvRTv5vKH1dLef35PM-HfpfL7gvxeyyHMmKWg1hkxo8lvbtfwraSmknaLEgGRBL5YKDKgoPUchk-ege5r7-sZTuf-pu537LYuEvE5Du04dEW7Ol9zkJaoJRKaYiqijBbziMk4-5VEjfaYSl9NPH9R9c8VQxpZT8n"
-                            alt="Capsule House">
-                    </div>
-                    <div
-                        class="col-span-6 aspect-square rounded-2xl overflow-hidden shadow-2xl relative translate-y-12 group">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpEHahJUViYJPzK_31xXJywtWq7PIfmJPaA7wOTqR7oEkSuXrH5wDa5F-4m4o9C6_V8FEkmu9adAn_4yEZ17m_LnwscP4v2k7bomErMa5mIeLLL0YsjolGzdq6fZ5kjBOxQTBU-rf54Y4mbObK3KqMRZl-hyPFkClZ3XRWmke2uDJUTuNUv3XTnKzacTTqkQtJ9xqVnQVRWxB6RUGgi-hkDigDxgB9RIyXLsCQoc0bhEJCrqrhYRtS7XgDE_CHUbsgtBQJoOfwfA4w"
-                            alt="Backwater View">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Tab: STAY -->
-        <section id="stay"
-            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-light dark:bg-[#0d1416]">
-            <div class="max-w-7xl mx-auto mt-10">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                    <div class="max-w-2xl">
-                        <span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Luxury
-                            Retreats</span>
-                        <h2 class="text-5xl md:text-6xl font-serif font-medium leading-tight mb-4 text-white">Our
-                            Sanctuaries</h2>
-                        <p class="text-slate-400 text-lg leading-relaxed font-light">
-                            Experience the quiet luxury of our lakeside retreats. Each sanctuary is designed to
-                            harmonize with the rhythmic flow of the water.
+                
+                <!-- Content -->
+                <div class="relative z-20 container mx-auto px-6 text-center pt-20">
+                    <div class="flex flex-col items-center gap-6 max-w-4xl mx-auto">
+                        <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-2 block animate-fade-in-up">Premium Tropical Retreat</span>
+                        <h1 class="text-white text-6xl md:text-9xl font-black leading-none tracking-tighter flex flex-col md:flex-row items-center gap-4 md:gap-8 drop-shadow-2xl">
+                            <span class="text-glow">IDAM</span>
+                            <span class="text-white/30 text-4xl md:text-7xl font-light">|</span>
+                            <span class="font-normal opacity-90 text-5xl md:text-8xl font-serif">ഇടം</span>
+                        </h1>
+                        <p class="text-white/80 text-lg md:text-xl max-w-2xl font-light leading-relaxed drop-shadow-md mt-6">
+                            Luxury living, naturally rooted in the heart of Kerala’s backwaters. Experience minimalist architecture where nature meets modern comfort.
                         </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                            <button onclick="navigateTo('stay')" class="bg-primary text-background-dark h-14 px-10 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all hover:bg-white hover:scale-105 group shadow-lg shadow-primary/20">
+                                Explore Your Stay
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                            <button onclick="navigateTo('gallery')" class="bg-white/10 backdrop-blur-md text-white border border-white/20 h-14 px-10 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
+                                Virtual Tour
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Room Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Bottom Elements -->
+                <div class="absolute bottom-10 left-0 right-0 z-20 flex flex-col items-center gap-6">
+                    <div class="flex flex-col items-center gap-2 floating-element">
+                        <span class="text-[10px] uppercase tracking-[0.4em] text-white/60 font-bold">Discover More</span>
+                        <div class="w-px h-12 bg-gradient-to-b from-primary to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. STAY SECTION -->
+        <section id="stay" class="page-section">
+            <div class="max-w-7xl mx-auto px-6 py-20">
+                <!-- Header -->
+                <div class="mb-12 text-center md:text-left">
+                    <span class="text-primary font-bold tracking-widest text-xs uppercase mb-3 block">Luxury Living</span>
+                    <h2 class="font-serif text-5xl md:text-6xl mb-6 leading-tight">Our Sanctuaries</h2>
+                    <p class="text-lg text-slate-400 font-light max-w-lg">Each space is designed to bridge the gap between architectural excellence and raw tropical nature.</p>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                     <!-- Room 1 -->
-                    <div
-                        class="group flex flex-col bg-surface-dark/40 rounded-xl overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500">
-                        <div class="relative aspect-[4/3] overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCH127zrvrhI23h4rcUItZtfWfXYEsZMlm0lpMjWf3GQmzP5Mct9XQq4dYD0IBfM8VYNCDYYYY5GofzyUjB7C24qsxiXR3rB-nCRSQJXy8qwJYSUhLqqwyeTT0vEB61_iav4tri3rRm3IoBCoE3lzkfTysxuzDOKBcXWn0MCDN3qTv2csXO7s4pXeztwIkGTGC1iURUrcJs6xcTzFY1fLHL6fpau94qNomgWPwRMp5YjditKcv8EYpWjaG54qwWQv4vhC8QV1EAsS4e');">
+                    <div class="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-2xl">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEBWaKu2eB6QHNlxv-VUFcb6-l90FKXHS135cHWYYHGILppv9VJtl1vj4sxQy92slXjLdKP8Bv5KebvaZxCtVgUTcJyCF3zgUCqgSExtPZRbCuXzIjXy10MeSVjHTFcqtr_O1j8SLz75m4IZSxfy2LwwQF-lbEs7XWmV_RkqIOcPdlWRpUPhR-Cq1EVydTCZpXEqzb9QFbFfvycjpus5qmwSbnAm__nqRT8Qa6ty5B9Dtim5TSeaogWyGh98RAFSlXORcMa-jHpaob');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold mb-1">Lakeside Suite</h3>
+                            <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Panoramic Views • 850 sq ft</p>
+                            <p class="text-sm text-white/70 mb-4 line-clamp-2">A masterpiece floating over backwaters with private deck.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold">₹25,000 <span class="text-xs font-normal text-white/50">/ night</span></span>
+                                <button class="bg-primary text-background-dark px-4 py-2 rounded-lg text-xs font-bold uppercase">Book</button>
                             </div>
                         </div>
-                        <div class="p-8 flex flex-col grow">
-                            <h3
-                                class="text-2xl font-serif font-medium text-white group-hover:text-primary transition-colors mb-2">
-                                The Serene Suite</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 grow">
-                                Panoramic lake views with a private balcony, glass walls, and minimalist interior.
-                            </p>
-                            <button onclick="switchTab('book')"
-                                class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</button>
-                        </div>
                     </div>
+
                     <!-- Room 2 -->
-                    <div
-                        class="group flex flex-col bg-surface-dark/40 rounded-xl overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500">
-                        <div class="relative aspect-[4/3] overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU_cZJOydvs7Xh5sT1Qw4254LlY2Eze7xWo6W-BFiPvSjd1ONoS2aSM-EEDGE3ztCKvfNm8TEox7i1ruQKrfEI81gPZ_a0kRuaT7D5ZQOwZ_cbhvHhPd5KNX2hdX5IhX2NTKSYOaVy4JdIvoxidvaNc6YJFWLHRFmdTSZQe8Pa_RwzvimoWaPGOZUw2YcHqOq_avxn9KgnkQEw7HLwziYV30Av2zEXbz9BcNChR96u2PU19a-X0aCYTspIRXXgxqeN4FPaXmQaRZir');">
+                    <div class="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-2xl">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFa8jCsAfry6Isw9FuEklyE_Yli7syLqtBIAidDUKbaWjMWrpNYRuGvq3_G8sGZxyDaBG39wqkBcTUbwWGWDQ-h2AIyuo9AjjDQ1uTCSHD48sXRZQs2RQFfTAFHbfQHcLBt8MyAxwnRrxN-77eXgFAVYCwBsKEJ_38gCeKaNaU6kexvjveUJzap8jkXKZZH-1fIBJ412gJ28L6XF1hDPQHBcUq5p3aURoEU8a1iqdRRZarzcX5q92OeWr-gnVnTAoyNzmdmnWRbf_N');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold mb-1">Tropical Villa</h3>
+                            <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Lush Garden • 1200 sq ft</p>
+                            <p class="text-sm text-white/70 mb-4 line-clamp-2">Tucked away in emerald flora with open-air rain shower.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold">₹18,000 <span class="text-xs font-normal text-white/50">/ night</span></span>
+                                <button class="bg-primary text-background-dark px-4 py-2 rounded-lg text-xs font-bold uppercase">Book</button>
                             </div>
                         </div>
-                        <div class="p-8 flex flex-col grow">
-                            <h3
-                                class="text-2xl font-serif font-medium text-white group-hover:text-primary transition-colors mb-2">
-                                Veranda Haven</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 grow">
-                                Heritage-inspired architecture featuring traditional wood carvings and an expansive
-                                porch.
-                            </p>
-                            <button onclick="switchTab('book')"
-                                class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</button>
-                        </div>
                     </div>
+
                     <!-- Room 3 -->
-                    <div
-                        class="group flex flex-col bg-surface-dark/40 rounded-xl overflow-hidden border border-white/5 hover:border-primary/20 transition-all duration-500">
-                        <div class="relative aspect-[4/3] overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpDgBFxdiJNBFz3cEwjZFqToU2xYkR8tGrjDEzy9Ok3TuIgMo8-hTgEGnBru7_6e0xNi44FIzvuOMxBcBybMpb6RljiEX1jDXJUsNRruaipgKOuX00KBN29Qp9eFK04F_nkmPXLyrLZykKIxhynQInIc-VX9mxfRFnRbrmwAB3HlEzN22MkBmWCKkzUoeDOcHhn8kpvyqU5HGq4DCTPL3jy6bYnVFTi6ngGqptggDPuiUTKVlCgCx41d9_vY1-6RE-nxZ10uzJDDeS');">
+                    <div class="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-2xl">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-4i87eqjIrbPrTLkdFWGSL4LjtfUx9tjQY4akcvTrUz9obNGRGM97sGMXSMkMV8HPfFElyjLdikz65f0W4xF6Cfw692_8gMn3yWhUgNQhwuxRQ6vNxANlg2WOWl943gDRhr88sbzBBlN2h0xrm9K9gqdT5GQ5z4mGonWp2sk30Z8uWSB-3FItW4aeI7atBxmsB2-rwDpzlzs-mbLvO8kwE7jJL0wP9nNFIV56jU5bIoRcyl6_tnjExoprrw0r9LIaUB3zOSC2LEjW');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold mb-1">Heritage Pavilion</h3>
+                            <p class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Classic Luxury • 950 sq ft</p>
+                            <p class="text-sm text-white/70 mb-4 line-clamp-2">Authentic Kerala architecture restored with premium furnishings.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold">₹22,000 <span class="text-xs font-normal text-white/50">/ night</span></span>
+                                <button class="bg-primary text-background-dark px-4 py-2 rounded-lg text-xs font-bold uppercase">Book</button>
                             </div>
                         </div>
-                        <div class="p-8 flex flex-col grow">
-                            <h3
-                                class="text-2xl font-serif font-medium text-white group-hover:text-primary transition-colors mb-2">
-                                Lakeside Pavilion</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 grow">
-                                Ultra-luxury waterfront living with direct access to the backwaters.
-                            </p>
-                            <button onclick="switchTab('book')"
-                                class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Tab: EXPERIENCES -->
-        <section id="experiences"
-            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark relative overflow-hidden">
-            <!-- Background Decoration -->
-            <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none">
-            </div>
-            <div class="max-w-7xl mx-auto mt-10">
+
+        <!-- 3. EXPERIENCES SECTION -->
+        <section id="experiences" class="page-section">
+            <div class="max-w-7xl mx-auto px-6 py-20">
                 <div class="text-center mb-16">
-                    <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Unforgettable
-                        Journeys</span>
-                    <h2 class="text-5xl md:text-6xl font-serif font-medium mb-6 tracking-tight text-white">Immersive
-                        IDAM</h2>
-                    <p class="max-w-2xl mx-auto text-[#92bfc8] text-lg leading-relaxed font-light">
-                        From the gentle rhythm of the backwaters to authentic culinary heritage, discover activities
-                        curated for the discerning traveler.
-                    </p>
+                    <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">LOCAL <span class="text-primary italic">EXPERIENCES</span></h2>
+                    <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto">A poetic journey along the Malabar coast.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Kayaking -->
-                    <div
-                        class="glass-card rounded-xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
-                        <div class="relative h-64 overflow-hidden">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHRp22uU_cQ0-ILp0sn_k-U3ZO7DLjrnKXMa-Pa0bTBF4rcMMYU6s2e-QMPYNCLQey0pbGvVtMiDAN-AuW4I39iyHHvT2PqeWQFFThOlCJnokwd6qZFnn5PcFn8Xs-Qkp6UC65cyW5IkvVSDsny0vOeYTYOcndv15q612rqjLvcIqTmkw6Y1RivmbKfP7ehrorzl2K0wLEtcOKkx1umklTeLDYGTzlrJeWiXks2niWGtgInak7ioxlQSDgkomKWNHieeRaXvfd9qot"
-                                alt="Kayaking">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-serif font-medium mb-2 text-white">Kayaking</h3>
-                            <p class="text-[#92bfc8] text-sm mb-6 leading-relaxed">Glide through serene, narrow canals
-                                and witness local morning rituals.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Exp 1 -->
+                    <div class="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2OyMZa5jhIBtNxEax0aiIGOUIdCUo_8V621Sm_3rj-LWFhBloGptdcgno7R1amr9Ec2t-JOPt9K2P0G5HHORBGB1_-Kie7_LVS_b_LIQxMC-59AB1V2-Lsut9iATG27TDTL6EyMH7tcpD9BKQsYgDLiHrF7I09bvFzVJk7GqUHkQz1ja0zQ5Kq7hEWkacR9tOdct_0NNmLTaL62kp0_qzDUni--iaPOQYcbMhoODsyRbKgh37_4wMQ_1p7_a8P8-P6xJ9aRgF0ZTR" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-2">kayaking</span>
+                            <h3 class="text-2xl font-bold">Kayaking</h3>
+                            <p class="text-sm text-slate-300">Silent glides through mangroves.</p>
                         </div>
                     </div>
-                    <!-- Fishing -->
-                    <div
-                        class="glass-card rounded-xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
-                        <div class="relative h-64 overflow-hidden">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOI4wCToV29jf5n5KmQi2z7rHm7CUGL4Ij3cVZPq2X8nvpZscQJOjaZqZxxzQT06l1HqrUoJjumacc6Qe1iVIvEnJthiy3pGK97CGBc5S6hJbenLdQ77v0Q4U-MvDEB7DPpf0jaRt6DgLbmm1Zvfpdtoqqf7sfo6xTYBn1EaIbYi3K4gKO9hBYwkIyg4W6YCKdR_Rnbiy9ylI8E9-TxIkPjFiJXNRHSE5KhzS32u_xIbxXqOeQ7IMC4kLPm5cfTVgpsI3cMuiUcdNL"
-                                alt="Fishing">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-serif font-medium mb-2 text-white">Traditional Fishing</h3>
-                            <p class="text-[#92bfc8] text-sm mb-6 leading-relaxed">Join local fishermen and learn the
-                                art of casting traditional nets.</p>
+                    <!-- Exp 2 -->
+                    <div class="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN3IeSedcOYdrclJMLZdb7HRoptSymtGP956yALHRtpyfhgdxSREUaZL_nXTl02J0R_NbVjIItiOFrwZKkX_B4ZTI7pGZ0LeBI5TiYOSaBPuHsbtQfRGOf5g5H7Weujw28CXMToOvnPqioQtMQ4SPdIWhERQUwz0pjMRrU8oomplYyXSYiCHQHdl4a9ebu1L2uBXH8F5lmH1mzCHHpisVAbLRIPo5pd0HE22haVHLY9XiWJi-UprdeCek9DC_iUSa5IdqIwa_qux5I" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-2">phishing</span>
+                            <h3 class="text-2xl font-bold">Fishing</h3>
+                            <p class="text-sm text-slate-300">Traditional casting techniques.</p>
                         </div>
                     </div>
-                    <!-- Village Walks -->
-                    <div
-                        class="glass-card rounded-xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
-                        <div class="relative h-64 overflow-hidden">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxp4j8vHEfxeVhqI84Zm9CWtGMl4PnriHqmhmkwCPwtvkUAcP5Oa9-Nq9G5yYZqvXZ2DCtQnRuwCXZJc-0CB636c6zNXDiqqEnsrxXWnhpvYHTrF43NQ7yk7igJJz3fznxg5-JImpWVy_kb9kQczye9F2O41kwGQsxKhIxunBrYJK10qXcgVSt1poGzwc8EF2klAT-lvrcSinUaJXpFAi2lSzSWkr76qBFk-GlZtUU3s3SU5wdpJCjQmUgno2vfYiuYvdrTf0pYJ8B"
-                                alt="Village Walk">
+                    <!-- Exp 3 -->
+                    <div class="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoIS21W1S7DP6y9QyQEPmd574W1H-RUtra36GhyFs3b5VPdu0AjdUjxiW8HuCeGk7R2oKu0LYw9Ai7vaXGp2iXEo_vKZDm8UlrW5SSsmzRbKy7XRiju-0qZh6gMsKEQpocEzPlZj9hAFuveA0bQ5Qt0NqxV0p3A0tadqpuJwzlVB5ydXZ3s0b6yY4wHEinMdPzN8FQ81MCKOGSmwwrT08qghYoLiBHN61rTa-xFe5xkuG0EUh_EFzFqZwSLfZE2H-4vutqBC8y3609" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-2">sailing</span>
+                            <h3 class="text-2xl font-bold">Boating</h3>
+                            <p class="text-sm text-slate-300">Sunset cruises on Vembanad Lake.</p>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-serif font-medium mb-2 text-white">Village Walks</h3>
-                            <p class="text-[#92bfc8] text-sm mb-6 leading-relaxed">Immerse yourself in the local
-                                lifestyle with a guided walk.</p>
+                    </div>
+                    <!-- Exp 4 -->
+                    <div class="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdJqbfk5bN61o8BFA-QKGTYuJC3yFBRUmloaCccJ_ccG_vuw_FwKDFZBFgnpsB0hrOkileNcYq6ZSG1hRA27o3UgO9XF0-iSSPwmCbubGxSAtoK5tfFo45wstKZDuCHDuQOS8QS56Tu2GF7XJZBJzrzw3lkMJrxi1QYZl1DJXfH4EpmkOVia8N-S7kZ2N1vrJb2kHAsoKJlfW0xlQx9mdOJnCwgDeOkqzJSx7P-WctymB26onYkD0_X30FbQ6BXYGuVFYuIbKyH-lW" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-2">directions_walk</span>
+                            <h3 class="text-2xl font-bold">Village Walks</h3>
+                            <p class="text-sm text-slate-300">Discover rural Kerala life.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Tab: GALLERY -->
-        <section id="gallery"
-            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-light dark:bg-[#0d1416]">
-            <div class="max-w-[1440px] mx-auto mt-10">
-                <div class="flex items-end justify-between mb-10">
-                    <div>
-                        <span class="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Visual
-                            Journey</span>
-                        <h2 class="text-5xl lg:text-6xl font-serif font-medium leading-tight tracking-tight text-white">
-                            Lakeside Moments</h2>
-                    </div>
-                </div>
-                <!-- Small Grid Masonry -->
-                <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-                    <!-- Standard Images -->
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSq0FqpPKbLfGoy7s9PsiJJdDIA8aGrsBVTU-WXnYjgK50n0goEIg7438hphhcd0HpstrleJJ9JlGvfYGhTCTfRPlzteMv9vQuUdmIVK-sH4D1SZMy8h2IihBguqDUXJHUsfy2_W0LVlKx2_L0JWyl18JQjeV__fB7BXVBylFi1bZOB7N5_hU8WVRbn_cRkY-9qNkl-7yCYB2cMWCiBYKDBF_IfJG8lAScwWTC3XbtWUOESNtmpNslB0T5uQwSHOVgNFbdDFnHHmdQ"
-                            alt="Gallery">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNRbbLYn9W4cLrs6DV9H5blJZRatyzSe-sqnuMNULiFv-yNmTtgwwQTNPib_juSRjuigehiDW6ZMvprpPu6lgEPO64tvpEtJKaWcr24RYygOZpCaOcfI_vOQBpRpdLE7iI2SAclsD4EzFYJSwsLiWwGdIHSMSrTtedb6kSGD1AnITSTXIYtaybmtjxArtwQ_AoXtfIMzwDYG7c0qwte9VQci_IO7qja8jPdkcpoMWpweyDtUewiL7chbK52twMGuCo9_yTWpPfGh9q"
-                            alt="Gallery">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdRSlExOR8kc_XkAw_xggiufcWDgNeWD9ygl3xInj_Vn_cqrsYJuZ0GbdzgvCGR8cKDz_jCDbhNtB_UFIwOEeHKuT9XAgUXUlvEKh-rD8JlUqlojsEyARDklpnfT2agZiWjURmvSBW9WCwWAxzj-fan1YinoE9Az95HpTonISN01g-5Q06hU-Sa7oDZX2gZoAuQZD_xO_DkzWDBHthb2yYBwmvavlGNaN3WH30gXB2jB40M9Mr5M1lFyg4BnF8e9rN6zAle7vzG4YV"
-                            alt="Gallery">
-                    </div>
-                    <!-- Added Images for fullness -->
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHRp22uU_cQ0-ILp0sn_k-U3ZO7DLjrnKXMa-Pa0bTBF4rcMMYU6s2e-QMPYNCLQey0pbGvVtMiDAN-AuW4I39iyHHvT2PqeWQFFThOlCJnokwd6qZFnn5PcFn8Xs-Qkp6UC65cyW5IkvVSDsny0vOeYTYOcndv15q612rqjLvcIqTmkw6Y1RivmbKfP7ehrorzl2K0wLEtcOKkx1umklTeLDYGTzlrJeWiXks2niWGtgInak7ioxlQSDgkomKWNHieeRaXvfd9qot"
-                            alt="Kayaking">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxp4j8vHEfxeVhqI84Zm9CWtGMl4PnriHqmhmkwCPwtvkUAcP5Oa9-Nq9G5yYZqvXZ2DCtQnRuwCXZJc-0CB636c6zNXDiqqEnsrxXWnhpvYHTrF43NQ7yk7igJJz3fznxg5-JImpWVy_kb9kQczye9F2O41kwGQsxKhIxunBrYJK10qXcgVSt1poGzwc8EF2klAT-lvrcSinUaJXpFAi2lSzSWkr76qBFk-GlZtUU3s3SU5wdpJCjQmUgno2vfYiuYvdrTf0pYJ8B"
-                            alt="Village">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2y02hBZt0Vpdf6Hgs3hx8Rbe9fsgFZmxzNz4KQVKis8nuFKJq7sGE69B4kLd5pioP-PGVgIuQCxTf7z5f0fSeBLsLH4kFmLhmg5jzW9mklB1J0Ebnk6tlRqrQYVdMhguToTrIWsKQjFoltjr78pHe2F5ErnRQ2Wceh_s7PGpDmMG2RMveImb8U0SpH7-BgjTCo5P8hrx9mf0QC7sp-mIteV7sx9XNfjPgkd_T4jOfQNa_bo6xfVQ5Jy_BvEcnHbnWRmq0R7s9Q2Ck"
-                            alt="Gallery">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpEHahJUViYJPzK_31xXJywtWq7PIfmJPaA7wOTqR7oEkSuXrH5wDa5F-4m4o9C6_V8FEkmu9adAn_4yEZ17m_LnwscP4v2k7bomErMa5mIeLLL0YsjolGzdq6fZ5kjBOxQTBU-rf54Y4mbObK3KqMRZl-hyPFkClZ3XRWmke2uDJUTuNUv3XTnKzacTTqkQtJ9xqVnQVRWxB6RUGgi-hkDigDxgB9RIyXLsCQoc0bhEJCrqrhYRtS7XgDE_CHUbsgtBQJoOfwfA4w"
-                            alt="Sunset">
-                    </div>
-                    <div class="overflow-hidden rounded-lg break-inside-avoid">
-                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhnQdyEVhoTuZGA12JFy_XZrUFcOuN2fty9ywFhquz1jLDRWNHjc9wydkX2-zY8FC7dBWCYRpxoSPuVg0l38hHSomfubNkRQZoS8NSjj7eD90cJvRTv5vKH1dLef35PM-HfpfL7gvxeyyHMmKWg1hkxo8lvbtfwraSmknaLEgGRBL5YKDKgoPUchk-ege5r7-sZTuf-pu537LYuEvE5Du04dEW7Ol9zkJaoJRKaYiqijBbziMk4-5VEjfaYSl9NPH9R9c8VQxpZT8n"
-                            alt="Capsule">
-                    </div>
+
+        <!-- 4. GALLERY SECTION -->
+        <section id="gallery" class="page-section">
+            <div class="max-w-7xl mx-auto px-6 py-20">
+                <h2 class="text-5xl font-bold mb-10">Visual Journey</h2>
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCicxrWMha_hte67pZgA2jQhsG05T6RTmRtoPshtkwS0eUdnGVc34NAILVLiS0pgcPE5dn2e-YKF34npYCZTuLK04yBgZdaywl3ydNbtfHufuuz-m-Q0Zz2Goq3f4JREX3NxCQQ-iIwNKmfHzRxBOFJLRnQPkJyPo5eO3Yj7Rs1aO0gVAfltFJLsclHjvgyMhx_m4RTDfluEGSz-NncGsOt4p3KfnJGgAl2XM7udrvQDGOqNMVKYpM0IF2N8jd_fsQlK6I6n4nH9zk5">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlXnOmN2DeL_YcX7CfhPCpmgRtZ_A74SYuDABjitzv9_f4OtUbK-dJHSJaRTaZcW68pZvKSlFMZ_swHIkV3XZBTi7T_AElztdAocGzn4USqQV0-Qs0ZELEQFMr1vl2s7qe6wkJcsVwxr9oWZWyizwTdIaWmfP3ouY7jBrk75Ki7B8cL5bN7AEIPvqW-3b-IGgIXMPAG25C4UzLRIznKGPpbqSrS27-mnrnRv4HvWp9ixp6ym-kkZZPYiXkBHNg3XdhbIjOfCYA0rkY">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5u6zyHqGZJB9v5Ihz8uVcTkeo0pBfRgMXO3mSwhapa1mgnqfadrHFoLmHSonBtV-UNeNNFLs81d2IANy4SXMeQ-skyxruXU6wy_23apsAifwcsq2zWdYVsgOcPAeX9Fe_Ex3SsbSqXD2zd8-mqk5-WEm0Jd13BT-XQjHfvsIH3BDJNmTfEjhaoHzzjr2sc15kCe_f4kKPchsNFRJVeUcmQlncvDEPSWVgIVzRxKKrvp7iTP1hjom4uFJTf5wrEuqGlBYpFErlB6Ag">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqkP3noDG51UjME4m4JYQnnyM6KzvhSSVsEVhAINzr83YIYDnPkTpDHXtER-6ebfDc9R0z9xbLlC_G0lU0GtiF9ekTWCq561vbE2Z14-on2iOYzkh9ECUl_0s6onXxWb0eNN4r3FNCCH2aGkvqHYPUmM_toF1AhgQiVebRfyMUp4OWTbQvWMmeyCxTxVV-JrSNSYNqhMSQRiWUSf0EHCICQ38IHy24K9EpNfJltQPvNv0MAJwnlsiFBUr758Ozg1hFsyHqZB4fyey">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4NwvNEJKP4TwzlSwRorhpsw39Yuej203dqqEMgR5VtYK5-eRV-W_xSr-4duZu2iVLEs-O6c5KnyqfP9EMf1MU_XQPw7E6Hut2JE4SPN4Ei_Unjn3KIRghyC7prP3S_1B47bwYT20bYru-FXp5hYrvrM4FdxdeEHVdhypUGmkdxGvJoritc5brZRX0I3QB_UMXR2Of75E256Bb4pRBqMn_RpT9ctQTsDF5cr1fzeWg2nsnTAcvYD8e4E-NdsFTehIDkredOuSQBN5r">
+                    <img class="w-full rounded-xl hover:opacity-80 transition-opacity cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTsme2fUDC59qGItuf9rhjzDCK6pHUx3MUq05xyxUJUbUXm_P7vXrj6w7Vc2dvC9Eque_jb6QgQa10WpIBj45-xr-N-FxU21__hULbmiJhSR_ZVSYhgAJUAYd-4saXq3gpQ3SKD5L6trF4bgT5pQFLv-ZO_I3zrG_u-8pYEFH1Ns7AzOmClFFeblRi8soigwpW36GQbl7gBBx0WSKOQ8QrQ3qwQkUk8wtHLA4uKD21u923mwRjkklp_ociK5staHB2PDbDwAsOY7-I">
                 </div>
             </div>
         </section>
-        <!-- Tab: BOOK / CONTACT -->
-        <section id="book"
-            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark border-t border-white/5">
-            <div class="max-w-7xl mx-auto mt-10">
-                <div class="text-center mb-16">
-                    <span
-                        class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Reservation</span>
-                    <h2 class="text-5xl font-black text-white font-serif">Secure Your Stay</h2>
+
+        <!-- 5. BOOK NOW SECTION -->
+        <section id="book" class="page-section">
+            <div class="relative w-full h-80">
+                <div class="absolute inset-0 bg-black/60 z-10"></div>
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa0mmY_9j8gBoEKWgjRQM2eJtkEYlCmmiXBzRbsszPs-8icfx_DqLIyVi0B9lBo7z4QNc4lvp1F52vKrA38xHPOne-r7Ndt6wCyjtfsZtsYKPpVSy5qcrXLsHiT-82XROApOlGo7agx1jKoB3Hg_GRvd2b_1ltxKU_aRpE0YOc2giWzUn6bNXQ1r4YF4UKqfw6wdVg1NevnzcNnGdAFW7DG-MupBjAMVR0fmp_5RbRme-X-ZDGNiZeUzReTl7QIKSApMLwEuqj4yZt" class="w-full h-full object-cover">
+                <div class="absolute inset-0 z-20 flex items-center justify-center">
+                    <h1 class="text-4xl md:text-6xl font-black">Secure Your Escape</h1>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20" id="contact">
-                    <!-- Right: Booking Form UI -->
-                    <div>
-                        <div class="glass-panel p-8 rounded-2xl border border-primary/10">
-                            <h4 class="text-xl font-bold text-white mb-8 font-serif">Book A Room</h4>
-                            <form class="space-y-6">
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Check
-                                            In</label>
-                                        <input type="date"
-                                            class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
-                                    </div>
-                                    <div>
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Check
-                                            Out</label>
-                                        <input type="date"
-                                            class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
-                                    </div>
-                                </div>
+            </div>
+            <div class="max-w-5xl mx-auto px-6 -mt-20 relative z-30 mb-20">
+                <div class="glass-card p-8 rounded-xl">
+                    <!-- Form Mockup -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-2 text-primary">Villa Type</label>
+                            <select class="w-full bg-white/5 border border-white/20 rounded-lg p-3 text-white"><option>Lakeside Suite</option><option>Tropical Villa</option></select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-2 text-primary">Dates</label>
+                            <input type="date" class="w-full bg-white/5 border border-white/20 rounded-lg p-3 text-white">
+                        </div>
+                    </div>
+                    <button class="w-full bg-primary text-background-dark py-4 rounded-lg font-bold text-lg hover:brightness-110 transition-all">CHECK AVAILABILITY</button>
+                    <p class="text-xs text-center mt-4 text-white/50">Best Rate Guaranteed when booking direct.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONTACT SECTION -->
+        <section id="contact" class="page-section">
+             <div class="max-w-7xl mx-auto px-6 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <h2 class="text-5xl font-extrabold">Get In Touch</h2>
+                        <div class="glass-card p-8 rounded-xl space-y-6">
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
                                 <div>
-                                    <label
-                                        class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Room
-                                        Type</label>
-                                    <select
-                                        class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none transition-all">
-                                        <option>The Serene Suite</option>
-                                        <option>Veranda Haven</option>
-                                        <option>Lakeside Pavilion</option>
-                                    </select>
+                                    <p class="font-bold">Address</p>
+                                    <p class="text-slate-400">Kavalam, Alappuzha, Kerala</p>
                                 </div>
-                                <button type="submit"
-                                    class="w-full bg-primary text-background-dark py-4 rounded-xl font-black tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all">
-                                    CHECK AVAILABILITY
-                                </button>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+                                <div>
+                                    <p class="font-bold">Email</p>
+                                    <p class="text-slate-400">er.boneypantony@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                                <div>
+                                    <p class="font-bold">Phone</p>
+                                    <p class="text-slate-400">+91-8089323457</p>
+                                </div>
+                            </div>
+                             <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-primary text-2xl">photo_camera</span>
+                                <div>
+                                    <p class="font-bold">Instagram</p>
+                                    <a href="https://www.instagram.com/idam.stay?igsh=Njh0NGpqaHp5eGg4" target="_blank" class="text-primary hover:underline">@idam.stay</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="glass-card p-8 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-6">Send Enquiry</h3>
+                            <form class="space-y-4">
+                                <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white">
+                                <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white">
+                                <textarea rows="4" placeholder="Message" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white"></textarea>
+                                <button type="button" class="w-full bg-primary text-background-dark py-3 rounded-lg font-bold hover:opacity-90 transition-all">SEND MESSAGE</button>
                             </form>
                         </div>
                     </div>
-                    <!-- Contact Details -->
-                    <div class="space-y-12">
-                        <div>
-                            <h3 class="text-white text-3xl font-serif font-bold mb-8">Get in Touch</h3>
-                            <div class="space-y-8">
-                                <div class="flex gap-4 items-start group">
-                                    <div
-                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
-                                        <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
-                                    </div>
-                                    <div>
-                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
-                                            Location</p>
-                                        <p class="text-white font-medium text-lg leading-relaxed">Kavalam,
-                                            Alappuzha,<br />Kerala, India - 688506</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start group">
-                                    <div
-                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
-                                        <span class="material-symbols-outlined text-primary text-2xl">call</span>
-                                    </div>
-                                    <div>
-                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
-                                            Reservations</p>
-                                        <p class="text-white font-medium text-lg">+91 8089323457</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start group">
-                                    <div
-                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
-                                        <span class="material-symbols-outlined text-primary text-2xl">mail</span>
-                                    </div>
-                                    <div>
-                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
-                                            Email</p>
-                                        <p class="text-white font-medium text-lg">er.boneypantony@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Socials -->
-                        <div>
-                            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-4">Connect with
-                                us</p>
-                            <a href="https://www.instagram.com/idam.stay?igsh=Njh0NGpqaHp5eGg4" target="_blank"
-                                class="group relative inline-block">
-                                <div
-                                    class="size-12 rounded-full border border-primary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300">
-                                    <svg class="size-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-            </div>
+             </div>
         </section>
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/918089323457" target="_blank" class="whatsapp-float bg-[#25D366] hover:bg-[#128C7E] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110">
+             <i class="fab fa-whatsapp text-white text-2xl"></i> <!-- FontAwesome fallback or similar, using SVG here -->
+             <svg class="w-8 h-8 fill-current text-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.145.346.491 1.197.535 1.284.044.087.073.188.015.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.303.058.419-.073c.116-.13.491-.571.621-.765.13-.195.26-.159.441-.094s1.155.544 1.357.646c.202.101.335.152.383.235.048.083.048.48-.096.885z"></path></svg>
+        </a>
+
     </main>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918089323457" target="_blank"
-        class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all hover:scale-105 active:scale-95">
-        <div class="size-12 bg-white rounded-full flex items-center justify-center text-[#25D366]">
-            <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 256 256"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
-                </path>
-            </svg>
-        </div>
-        <div class="flex flex-col items-start leading-none text-white">
-            <span class="text-[10px] uppercase font-bold tracking-widest opacity-90">Instant Enquiry</span>
-            <span class="text-sm font-bold">Chat with IDAM</span>
-        </div>
-    </a>
-    <script src="assets/js/script.js"></script>
+
+    <!-- App Logic -->
+    <script src="script.js"></script>
 </body>
 </html>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+/* Base & Reset */
+:root {
+    --primary-color: #13ec80;
+    --bg-dark: #0a130f;
+    --transition-speed: 0.6s;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: hidden; /* Prevent vertical scroll for the 'app' feel */
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Page/Section Container */
+main#app-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+section.page-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allow scrolling within the section if content is long */
+    overflow-x: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility var(--transition-speed);
+    z-index: 10;
+    padding-top: 80px; /* Space for fixed header */
+    background-color: var(--bg-dark);
+}
+
+section.page-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 20;
+}
+
+/* Custom Scrollbar for Sections */
+section.page-section::-webkit-scrollbar {
+    width: 6px;
+}
+section.page-section::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+section.page-section::-webkit-scrollbar-thumb {
+    background: rgba(19, 236, 128, 0.3);
+    border-radius: 10px;
+}
+section.page-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(19, 236, 128, 0.6);
+}
+
+/* Glassmorphism Utilities */
+.glass-nav {
+    background: rgba(10, 19, 15, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Text Utilities */
+.text-glow {
+    text-shadow: 0 0 20px rgba(19, 236, 128, 0.3);
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Navigation Active State */
+.nav-link.active {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Mobile Menu Transition */
+#mobile-menu {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Specific Section Adjustments */
+/* Ensure Hero content centers correctly considering the fixed header */
+#home .hero-container {
+    height: calc(100vh - 80px); /* Subtract header height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const sections = document.querySelectorAll('section.page-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    // Navigation Function
+    function navigateTo(targetId) {
+        // Hide all sections
+        sections.forEach(section => {
+            section.classList.remove('active');
+            section.style.opacity = '0';
+            section.style.visibility = 'hidden';
+            section.style.transform = 'scale(0.95)';
+        });
+
+        // Show target section
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            // Small timeout to allow display:block to apply before transition
+            setTimeout(() => {
+                targetSection.style.opacity = '1';
+                targetSection.style.visibility = 'visible';
+                targetSection.style.transform = 'scale(1)';
+            }, 50);
+        }
+
+        // Update Nav State
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${targetId}`) {
+                link.classList.add('text-primary');
+                link.classList.remove('text-white/80');
+            } else {
+                link.classList.remove('text-primary');
+                link.classList.add('text-white/80');
+            }
+        });
+
+        // Close mobile menu if open
+        if (!mobileMenu.classList.contains('translate-x-full')) {
+            toggleMobileMenu();
+        }
+    }
+
+    // Toggle Mobile Menu
+    function toggleMobileMenu() {
+        mobileMenu.classList.toggle('translate-x-full');
+        const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+        if (mobileMenu.classList.contains('translate-x-full')) {
+            icon.innerText = 'menu';
+        } else {
+            icon.innerText = 'close';
+        }
+    }
+
+    // Event Listeners
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('href').substring(1);
+            navigateTo(target);
+        });
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('href').substring(1);
+            navigateTo(target);
+        });
+    });
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Initial Load
+    navigateTo('home');
+
+    // Check for hash in URL on load
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        navigateTo(hash);
+    }
+    
+    // Global Button Handlers for "Book Now" etc.
+    document.body.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON' || e.target.parentElement.tagName === 'BUTTON') {
+             const btnText = e.target.innerText || e.target.parentElement.innerText;
+             if (btnText && btnText.toUpperCase().includes('BOOK')) {
+                 navigateTo('book');
+             }
+             if (btnText && (btnText.toUpperCase().includes('CONTACT') || btnText.toUpperCase().includes('ENQUIRE'))) {
+                 navigateTo('contact');
+             }
+        }
+    });
+
+});
