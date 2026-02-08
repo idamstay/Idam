@@ -49,7 +49,7 @@
     <!-- Header / Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-[1440px] mx-auto h-20 px-6 lg:px-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+            <a onclick="switchTab('home')" class="flex items-center gap-3 group cursor-pointer">
                 <div class="text-primary size-8 group-hover:scale-110 transition-transform duration-300">
                     <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -63,28 +63,28 @@
                 <h2 class="text-xl font-bold tracking-wider uppercase font-serif">IDAM</h2>
             </a>
             <nav class="hidden xl:flex items-center gap-10">
-                <a href="index.html"
-                    class="nav-link text-sm font-medium text-primary transition-colors duration-300">Home</a>
-                <a href="about.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">About</a>
-                <a href="stay.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Stay</a>
-                <a href="experiences.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Experiences</a>
-                <a href="gallery.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</a>
-                <a href="contact.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</a>
+                <button onclick="switchTab('home')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Home</button>
+                <button onclick="switchTab('about')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">About</button>
+                <button onclick="switchTab('stay')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Stay</button>
+                <button onclick="switchTab('experiences')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Experiences</button>
+                <button onclick="switchTab('gallery')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</button>
+                <button onclick="switchTab('contact')"
+                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</button>
             </nav>
             <div class="hidden md:flex items-center gap-4">
-                <a href="contact.html"
+                <button onclick="switchTab('book')"
                     class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95 hover:bg-primary/90">
                     Book Now
-                </a>
-                <a href="contact.html"
+                </button>
+                <button onclick="switchTab('book')"
                     class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10">
                     Enquire Now
-                </a>
+                </button>
             </div>
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
@@ -96,23 +96,28 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="fixed inset-0 z-[60] bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8">
-        <a href="index.html" class="mobile-nav-link text-2xl font-light text-primary font-serif">Home</a>
-        <a href="about.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">About</a>
-        <a href="stay.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Stay</a>
-        <a href="experiences.html"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Experiences</a>
-        <a href="gallery.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</a>
-        <a href="contact.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</a>
+        <button onclick="switchTab('home')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Home</button>
+        <button onclick="switchTab('about')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">About</button>
+        <button onclick="switchTab('stay')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Stay</button>
+        <button onclick="switchTab('experiences')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Experiences</button>
+        <button onclick="switchTab('gallery')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</button>
+        <button onclick="switchTab('contact')"
+            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</button>
         <div class="flex flex-col gap-4 mt-8 w-full px-12">
-            <a href="contact.html"
-                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</a>
+            <button onclick="switchTab('book')"
+                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</button>
         </div>
     </div>
     <!-- Main Content Area -->
     <main id="main-content" class="w-full relative overflow-x-hidden">
         <!-- Tab: HOME -->
         <section id="home"
-            class="relative min-h-screen w-full flex flex-col justify-center items-center px-6 lg:px-20 overflow-hidden">
+            class="tab-content relative min-h-screen w-full flex flex-col justify-center items-center px-6 lg:px-20 overflow-hidden">
             <div class="absolute inset-0 z-0 scale-100">
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-black/40 z-10">
@@ -132,151 +137,19 @@
                     Experience the soul of Kerala
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 mt-8">
-                    <a href="stay.html"
+                    <button onclick="switchTab('stay')"
                         class="px-10 py-4 bg-primary text-background-dark rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(23,197,232,0.5)] transition-all">
                         Explore The Property
-                    </a>
-                    <a href="gallery.html"
+                    </button>
+                    <button onclick="switchTab('gallery')"
                         class="px-10 py-4 bg-white/5 border border-white/20 rounded-full font-bold text-lg backdrop-blur-md hover:bg-white/10 transition-all">
                         View Gallery
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
-    </main>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918089323457" target="_blank"
-        class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all hover:scale-105 active:scale-95">
-        <div class="size-12 bg-white rounded-full flex items-center justify-center text-[#25D366]">
-            <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 256 256"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
-                </path>
-            </svg>
-        </div>
-        <div class="flex flex-col items-start leading-none text-white">
-            <span class="text-[10px] uppercase font-bold tracking-widest opacity-90">Instant Enquiry</span>
-            <span class="text-sm font-bold">Chat with IDAM</span>
-        </div>
-    </a>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - IDAM | Kerala</title>
-    <meta name="description"
-        content="Discover the story of IDAM, a modern architectural sanctuary in Kerala's backwaters.">
-    <!-- Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+Malayalam:wght@100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#17c5e8",
-                        "background-light": "#f6f8f8",
-                        "background-dark": "#0f1719",
-                        "surface-dark": "#1a2e32",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "serif": ["Cormorant Garamond", "serif"],
-                        "malayalam": ["Noto Serif Malayalam", "serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-</head>
-<body
-    class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary/30">
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto h-20 px-6 lg:px-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
-                <div class="text-primary size-8 group-hover:scale-110 transition-transform duration-300">
-                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
-                            fill="currentColor"></path>
-                        <path clip-rule="evenodd"
-                            d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
-                            fill="currentColor" fill-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h2 class="text-xl font-bold tracking-wider uppercase font-serif">IDAM</h2>
-            </a>
-            <nav class="hidden xl:flex items-center gap-10">
-                <a href="index.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Home</a>
-                <a href="about.html"
-                    class="nav-link text-sm font-medium text-primary transition-colors duration-300">About</a>
-                <a href="stay.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Stay</a>
-                <a href="experiences.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Experiences</a>
-                <a href="gallery.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</a>
-                <a href="contact.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</a>
-            </nav>
-            <div class="hidden md:flex items-center gap-4">
-                <a href="contact.html"
-                    class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95 hover:bg-primary/90">
-                    Book Now
-                </a>
-                <a href="contact.html"
-                    class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10">
-                    Enquire Now
-                </a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
-                class="xl:hidden p-2 text-white hover:text-primary z-[70] relative">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </header>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8">
-        <a href="index.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Home</a>
-        <a href="about.html" class="mobile-nav-link text-2xl font-light text-primary font-serif">About</a>
-        <a href="stay.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Stay</a>
-        <a href="experiences.html"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Experiences</a>
-        <a href="gallery.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</a>
-        <a href="contact.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</a>
-        <div class="flex flex-col gap-4 mt-8 w-full px-12">
-            <a href="contact.html"
-                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</a>
-        </div>
-    </div>
-    <!-- Main Content Area -->
-    <main id="main-content" class="w-full relative overflow-x-hidden pt-20">
         <!-- Tab: ABOUT -->
-        <section id="about" class="min-h-screen py-24 px-6 lg:px-20 bg-background-dark">
+        <section id="about" class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark">
             <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mt-10">
                 <div class="flex flex-col gap-8 animate-on-scroll">
                     <div class="inline-flex flex-col gap-1">
@@ -331,140 +204,9 @@
                 </div>
             </div>
         </section>
-    </main>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918089323457" target="_blank"
-        class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all hover:scale-105 active:scale-95">
-        <div class="size-12 bg-white rounded-full flex items-center justify-center text-[#25D366]">
-            <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 256 256"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
-                </path>
-            </svg>
-        </div>
-        <div class="flex flex-col items-start leading-none text-white">
-            <span class="text-[10px] uppercase font-bold tracking-widest opacity-90">Instant Enquiry</span>
-            <span class="text-sm font-bold">Chat with IDAM</span>
-        </div>
-    </a>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stay - IDAM | Luxury Retreats</title>
-    <meta name="description"
-        content="Explore our luxury capsule homes and majestic villas at IDAM, designed to harmonize with the backwaters.">
-    <!-- Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+Malayalam:wght@100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#17c5e8",
-                        "background-light": "#f6f8f8",
-                        "background-dark": "#0f1719",
-                        "surface-dark": "#1a2e32",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "serif": ["Cormorant Garamond", "serif"],
-                        "malayalam": ["Noto Serif Malayalam", "serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-</head>
-<body
-    class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary/30">
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto h-20 px-6 lg:px-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
-                <div class="text-primary size-8 group-hover:scale-110 transition-transform duration-300">
-                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
-                            fill="currentColor"></path>
-                        <path clip-rule="evenodd"
-                            d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
-                            fill="currentColor" fill-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h2 class="text-xl font-bold tracking-wider uppercase font-serif">IDAM</h2>
-            </a>
-            <nav class="hidden xl:flex items-center gap-10">
-                <a href="index.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Home</a>
-                <a href="about.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">About</a>
-                <a href="stay.html"
-                    class="nav-link text-sm font-medium text-primary transition-colors duration-300">Stay</a>
-                <a href="experiences.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Experiences</a>
-                <a href="gallery.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</a>
-                <a href="contact.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</a>
-            </nav>
-            <div class="hidden md:flex items-center gap-4">
-                <a href="contact.html"
-                    class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95 hover:bg-primary/90">
-                    Book Now
-                </a>
-                <a href="contact.html"
-                    class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10">
-                    Enquire Now
-                </a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
-                class="xl:hidden p-2 text-white hover:text-primary z-[70] relative">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </header>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8">
-        <a href="index.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Home</a>
-        <a href="about.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">About</a>
-        <a href="stay.html" class="mobile-nav-link text-2xl font-light text-primary font-serif">Stay</a>
-        <a href="experiences.html"
-            class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Experiences</a>
-        <a href="gallery.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</a>
-        <a href="contact.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</a>
-        <div class="flex flex-col gap-4 mt-8 w-full px-12">
-            <a href="contact.html"
-                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</a>
-        </div>
-    </div>
-    <!-- Main Content Area -->
-    <main id="main-content" class="w-full relative overflow-x-hidden pt-20">
         <!-- Tab: STAY -->
-        <section id="stay" class="min-h-screen py-24 px-6 lg:px-20 bg-background-light dark:bg-[#0d1416]">
+        <section id="stay"
+            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-light dark:bg-[#0d1416]">
             <div class="max-w-7xl mx-auto mt-10">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div class="max-w-2xl">
@@ -495,9 +237,9 @@
                             <p class="text-slate-400 text-sm leading-relaxed mb-6 grow">
                                 Panoramic lake views with a private balcony, glass walls, and minimalist interior.
                             </p>
-                            <a href="contact.html"
+                            <button onclick="switchTab('book')"
                                 class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</a>
+                                DETAILS</button>
                         </div>
                     </div>
                     <!-- Room 2 -->
@@ -516,9 +258,9 @@
                                 Heritage-inspired architecture featuring traditional wood carvings and an expansive
                                 porch.
                             </p>
-                            <a href="contact.html"
+                            <button onclick="switchTab('book')"
                                 class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</a>
+                                DETAILS</button>
                         </div>
                     </div>
                     <!-- Room 3 -->
@@ -536,147 +278,17 @@
                             <p class="text-slate-400 text-sm leading-relaxed mb-6 grow">
                                 Ultra-luxury waterfront living with direct access to the backwaters.
                             </p>
-                            <a href="contact.html"
+                            <button onclick="switchTab('book')"
                                 class="w-full block text-center py-3 rounded-lg bg-white/5 border border-white/10 text-white text-sm font-bold tracking-tight hover:bg-primary hover:text-background-dark transition-all">VIEW
-                                DETAILS</a>
+                                DETAILS</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918089323457" target="_blank"
-        class="fixed bottom-8 right-8 z-[100] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] p-2 pr-6 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all hover:scale-105 active:scale-95">
-        <div class="size-12 bg-white rounded-full flex items-center justify-center text-[#25D366]">
-            <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 256 256"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
-                </path>
-            </svg>
-        </div>
-        <div class="flex flex-col items-start leading-none text-white">
-            <span class="text-[10px] uppercase font-bold tracking-widest opacity-90">Instant Enquiry</span>
-            <span class="text-sm font-bold">Chat with IDAM</span>
-        </div>
-    </a>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiences - IDAM | Kerala</title>
-    <meta name="description"
-        content="Immerse yourself in local activities, from kayaking to village walks, curated by IDAM.">
-    <!-- Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+Malayalam:wght@100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#17c5e8",
-                        "background-light": "#f6f8f8",
-                        "background-dark": "#0f1719",
-                        "surface-dark": "#1a2e32",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "serif": ["Cormorant Garamond", "serif"],
-                        "malayalam": ["Noto Serif Malayalam", "serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-</head>
-<body
-    class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary/30">
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-        <div class="max-w-[1440px] mx-auto h-20 px-6 lg:px-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
-                <div class="text-primary size-8 group-hover:scale-110 transition-transform duration-300">
-                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
-                            fill="currentColor"></path>
-                        <path clip-rule="evenodd"
-                            d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
-                            fill="currentColor" fill-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h2 class="text-xl font-bold tracking-wider uppercase font-serif">IDAM</h2>
-            </a>
-            <nav class="hidden xl:flex items-center gap-10">
-                <a href="index.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Home</a>
-                <a href="about.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">About</a>
-                <a href="stay.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Stay</a>
-                <a href="experiences.html"
-                    class="nav-link text-sm font-medium text-primary transition-colors duration-300">Experiences</a>
-                <a href="gallery.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Gallery</a>
-                <a href="contact.html"
-                    class="nav-link text-sm font-medium hover:text-primary transition-colors duration-300">Contact</a>
-            </nav>
-            <div class="hidden md:flex items-center gap-4">
-                <a href="contact.html"
-                    class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95 hover:bg-primary/90">
-                    Book Now
-                </a>
-                <a href="contact.html"
-                    class="hidden sm:flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 border border-white/20 text-white text-sm font-bold transition-all hover:bg-white/10">
-                    Enquire Now
-                </a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
-                class="xl:hidden p-2 text-white hover:text-primary z-[70] relative">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </header>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8">
-        <a href="index.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Home</a>
-        <a href="about.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">About</a>
-        <a href="stay.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Stay</a>
-        <a href="experiences.html" class="mobile-nav-link text-2xl font-light text-primary font-serif">Experiences</a>
-        <a href="gallery.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Gallery</a>
-        <a href="contact.html" class="mobile-nav-link text-2xl font-light hover:text-primary font-serif">Contact</a>
-        <div class="flex flex-col gap-4 mt-8 w-full px-12">
-            <a href="contact.html"
-                class="w-full py-4 text-center rounded-lg bg-primary text-background-dark font-bold">Book Now</a>
-        </div>
-    </div>
-    <!-- Main Content Area -->
-    <main id="main-content" class="w-full relative overflow-x-hidden pt-20">
         <!-- Tab: EXPERIENCES -->
-        <section id="experiences" class="min-h-screen py-24 px-6 lg:px-20 bg-background-dark relative overflow-hidden">
+        <section id="experiences"
+            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark relative overflow-hidden">
             <!-- Background Decoration -->
             <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none">
             </div>
@@ -732,6 +344,175 @@
                             <h3 class="text-2xl font-serif font-medium mb-2 text-white">Village Walks</h3>
                             <p class="text-[#92bfc8] text-sm mb-6 leading-relaxed">Immerse yourself in the local
                                 lifestyle with a guided walk.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tab: GALLERY -->
+        <section id="gallery"
+            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-light dark:bg-[#0d1416]">
+            <div class="max-w-[1440px] mx-auto mt-10">
+                <div class="flex items-end justify-between mb-10">
+                    <div>
+                        <span class="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Visual
+                            Journey</span>
+                        <h2 class="text-5xl lg:text-6xl font-serif font-medium leading-tight tracking-tight text-white">
+                            Lakeside Moments</h2>
+                    </div>
+                </div>
+                <!-- Small Grid Masonry -->
+                <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                    <!-- Standard Images -->
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSq0FqpPKbLfGoy7s9PsiJJdDIA8aGrsBVTU-WXnYjgK50n0goEIg7438hphhcd0HpstrleJJ9JlGvfYGhTCTfRPlzteMv9vQuUdmIVK-sH4D1SZMy8h2IihBguqDUXJHUsfy2_W0LVlKx2_L0JWyl18JQjeV__fB7BXVBylFi1bZOB7N5_hU8WVRbn_cRkY-9qNkl-7yCYB2cMWCiBYKDBF_IfJG8lAScwWTC3XbtWUOESNtmpNslB0T5uQwSHOVgNFbdDFnHHmdQ"
+                            alt="Gallery">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNRbbLYn9W4cLrs6DV9H5blJZRatyzSe-sqnuMNULiFv-yNmTtgwwQTNPib_juSRjuigehiDW6ZMvprpPu6lgEPO64tvpEtJKaWcr24RYygOZpCaOcfI_vOQBpRpdLE7iI2SAclsD4EzFYJSwsLiWwGdIHSMSrTtedb6kSGD1AnITSTXIYtaybmtjxArtwQ_AoXtfIMzwDYG7c0qwte9VQci_IO7qja8jPdkcpoMWpweyDtUewiL7chbK52twMGuCo9_yTWpPfGh9q"
+                            alt="Gallery">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdRSlExOR8kc_XkAw_xggiufcWDgNeWD9ygl3xInj_Vn_cqrsYJuZ0GbdzgvCGR8cKDz_jCDbhNtB_UFIwOEeHKuT9XAgUXUlvEKh-rD8JlUqlojsEyARDklpnfT2agZiWjURmvSBW9WCwWAxzj-fan1YinoE9Az95HpTonISN01g-5Q06hU-Sa7oDZX2gZoAuQZD_xO_DkzWDBHthb2yYBwmvavlGNaN3WH30gXB2jB40M9Mr5M1lFyg4BnF8e9rN6zAle7vzG4YV"
+                            alt="Gallery">
+                    </div>
+                    <!-- Added Images for fullness -->
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHRp22uU_cQ0-ILp0sn_k-U3ZO7DLjrnKXMa-Pa0bTBF4rcMMYU6s2e-QMPYNCLQey0pbGvVtMiDAN-AuW4I39iyHHvT2PqeWQFFThOlCJnokwd6qZFnn5PcFn8Xs-Qkp6UC65cyW5IkvVSDsny0vOeYTYOcndv15q612rqjLvcIqTmkw6Y1RivmbKfP7ehrorzl2K0wLEtcOKkx1umklTeLDYGTzlrJeWiXks2niWGtgInak7ioxlQSDgkomKWNHieeRaXvfd9qot"
+                            alt="Kayaking">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxp4j8vHEfxeVhqI84Zm9CWtGMl4PnriHqmhmkwCPwtvkUAcP5Oa9-Nq9G5yYZqvXZ2DCtQnRuwCXZJc-0CB636c6zNXDiqqEnsrxXWnhpvYHTrF43NQ7yk7igJJz3fznxg5-JImpWVy_kb9kQczye9F2O41kwGQsxKhIxunBrYJK10qXcgVSt1poGzwc8EF2klAT-lvrcSinUaJXpFAi2lSzSWkr76qBFk-GlZtUU3s3SU5wdpJCjQmUgno2vfYiuYvdrTf0pYJ8B"
+                            alt="Village">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2y02hBZt0Vpdf6Hgs3hx8Rbe9fsgFZmxzNz4KQVKis8nuFKJq7sGE69B4kLd5pioP-PGVgIuQCxTf7z5f0fSeBLsLH4kFmLhmg5jzW9mklB1J0Ebnk6tlRqrQYVdMhguToTrIWsKQjFoltjr78pHe2F5ErnRQ2Wceh_s7PGpDmMG2RMveImb8U0SpH7-BgjTCo5P8hrx9mf0QC7sp-mIteV7sx9XNfjPgkd_T4jOfQNa_bo6xfVQ5Jy_BvEcnHbnWRmq0R7s9Q2Ck"
+                            alt="Gallery">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpEHahJUViYJPzK_31xXJywtWq7PIfmJPaA7wOTqR7oEkSuXrH5wDa5F-4m4o9C6_V8FEkmu9adAn_4yEZ17m_LnwscP4v2k7bomErMa5mIeLLL0YsjolGzdq6fZ5kjBOxQTBU-rf54Y4mbObK3KqMRZl-hyPFkClZ3XRWmke2uDJUTuNUv3XTnKzacTTqkQtJ9xqVnQVRWxB6RUGgi-hkDigDxgB9RIyXLsCQoc0bhEJCrqrhYRtS7XgDE_CHUbsgtBQJoOfwfA4w"
+                            alt="Sunset">
+                    </div>
+                    <div class="overflow-hidden rounded-lg break-inside-avoid">
+                        <img class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhnQdyEVhoTuZGA12JFy_XZrUFcOuN2fty9ywFhquz1jLDRWNHjc9wydkX2-zY8FC7dBWCYRpxoSPuVg0l38hHSomfubNkRQZoS8NSjj7eD90cJvRTv5vKH1dLef35PM-HfpfL7gvxeyyHMmKWg1hkxo8lvbtfwraSmknaLEgGRBL5YKDKgoPUchk-ege5r7-sZTuf-pu537LYuEvE5Du04dEW7Ol9zkJaoJRKaYiqijBbziMk4-5VEjfaYSl9NPH9R9c8VQxpZT8n"
+                            alt="Capsule">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tab: BOOK / CONTACT -->
+        <section id="book"
+            class="tab-content hidden min-h-screen py-24 px-6 lg:px-20 bg-background-dark border-t border-white/5">
+            <div class="max-w-7xl mx-auto mt-10">
+                <div class="text-center mb-16">
+                    <span
+                        class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Reservation</span>
+                    <h2 class="text-5xl font-black text-white font-serif">Secure Your Stay</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20" id="contact">
+                    <!-- Right: Booking Form UI -->
+                    <div>
+                        <div class="glass-panel p-8 rounded-2xl border border-primary/10">
+                            <h4 class="text-xl font-bold text-white mb-8 font-serif">Book A Room</h4>
+                            <form class="space-y-6">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label
+                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Check
+                                            In</label>
+                                        <input type="date"
+                                            class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Check
+                                            Out</label>
+                                        <input type="date"
+                                            class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Room
+                                        Type</label>
+                                    <select
+                                        class="w-full bg-background-dark/50 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none transition-all">
+                                        <option>The Serene Suite</option>
+                                        <option>Veranda Haven</option>
+                                        <option>Lakeside Pavilion</option>
+                                    </select>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-primary text-background-dark py-4 rounded-xl font-black tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all">
+                                    CHECK AVAILABILITY
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Contact Details -->
+                    <div class="space-y-12">
+                        <div>
+                            <h3 class="text-white text-3xl font-serif font-bold mb-8">Get in Touch</h3>
+                            <div class="space-y-8">
+                                <div class="flex gap-4 items-start group">
+                                    <div
+                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
+                                        <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
+                                            Location</p>
+                                        <p class="text-white font-medium text-lg leading-relaxed">Kavalam,
+                                            Alappuzha,<br />Kerala, India - 688506</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start group">
+                                    <div
+                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
+                                        <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
+                                            Reservations</p>
+                                        <p class="text-white font-medium text-lg">+91 8089323457</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start group">
+                                    <div
+                                        class="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors">
+                                        <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">
+                                            Email</p>
+                                        <p class="text-white font-medium text-lg">er.boneypantony@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Socials -->
+                        <div>
+                            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-4">Connect with
+                                us</p>
+                            <a href="https://www.instagram.com/idam.stay?igsh=Njh0NGpqaHp5eGg4" target="_blank"
+                                class="group relative inline-block">
+                                <div
+                                    class="size-12 rounded-full border border-primary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background-dark transition-all duration-300">
+                                    <svg class="size-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
